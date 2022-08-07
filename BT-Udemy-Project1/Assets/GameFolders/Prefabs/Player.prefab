@@ -120,7 +120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7664700688018472268}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -60, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -187,6 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1398002021447120686}
   - component: {fileID: 552160588678001249}
+  - component: {fileID: 8501008382850511183}
   - component: {fileID: 3241388468899523651}
   m_Layer: 0
   m_Name: Player
@@ -224,7 +225,23 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 20.44226, y: 98.972176, z: 21.196083}
-  m_Center: {x: 0.10119629, y: 49.487156, z: 0.15444708}
+  m_Center: {x: 0.10119629, y: -10.5, z: 0.15444708}
+--- !u!54 &8501008382850511183
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8945365607443447431}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 56
+  m_CollisionDetection: 1
 --- !u!114 &3241388468899523651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,4 +254,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc38c30d2aec154fb982cea269312bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _force: 0
