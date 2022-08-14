@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using BTUdemyProject1.Inputs;
 using BTUdemyProject1.Movements;
+using BTUdemyProject1.Managers;
+using System;
 
 namespace BTUdemyProject1.Controllers
 {
@@ -16,6 +18,7 @@ namespace BTUdemyProject1.Controllers
         Rotator _rotator;
         Fuel _fuel;
 
+        bool _canMove;
         bool _canForceUp;
         float _leftRight;
 
@@ -30,8 +33,27 @@ namespace BTUdemyProject1.Controllers
             _fuel = GetComponent<Fuel>();
         }
 
+        private void Start()
+        {
+            _canMove = true;
+        }
+
+        private void OnEnable()
+        {
+            GameManager.Instance.OnGameOver += HandleOnEventTriggered;
+            GameManager.Instance.OnMissionSucced += HandleOnEventTriggered;
+        }
+
+        private void OnDisable()
+        {
+            GameManager.Instance.OnGameOver -= HandleOnEventTriggered;
+            GameManager.Instance.OnMissionSucced -= HandleOnEventTriggered;
+        }
+
         private void Update()
         {
+            if (!_canMove) return;
+
             if (_input.IsForceUp && !_fuel.IsEmpty)
             {
                 _canForceUp = true;
@@ -54,6 +76,13 @@ namespace BTUdemyProject1.Controllers
             }
 
             _rotator.FixedTick(_leftRight);
+        }
+        private void HandleOnEventTriggered()
+        {
+            _canMove = false;
+            _canForceUp = false;
+            _leftRight = 0f;
+            _fuel.FuelIncrease(0f);
         }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using BTUdemyProject1.Managers;
 
 namespace BTUdemyProject1.Controllers
 {
@@ -13,7 +14,7 @@ namespace BTUdemyProject1.Controllers
 
             if (player != null)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                GameManager.Instance.GameOver();
             }
         }
     }
