@@ -23,4 +23,3 @@ namespace BTUdemyProject1.Inputs
         }
     }
 }
-

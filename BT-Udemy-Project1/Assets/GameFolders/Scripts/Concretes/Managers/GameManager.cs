@@ -34,6 +34,7 @@ namespace BTUdemyProject1.Managers
         {
             OnGameOver?.Invoke();
         }
+
         public void MissionSucced()
         {
             OnMissionSucced?.Invoke();
