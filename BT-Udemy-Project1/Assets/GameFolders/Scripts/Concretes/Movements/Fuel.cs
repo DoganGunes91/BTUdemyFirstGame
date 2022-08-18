@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BTUdemyProject1.Managers;
 
 namespace BTUdemyProject1.Movements
 {
@@ -27,6 +28,8 @@ namespace BTUdemyProject1.Movements
             {
                 _particle.Stop();
             }
+
+            SoundManager.Instance.StopSound(0);
         }
 
         public void FuelDecrease(float decrease)
@@ -38,6 +41,8 @@ namespace BTUdemyProject1.Movements
             {
                 _particle.Play();
             }
+
+            SoundManager.Instance.PlaySound(0);
         }
     }
 }
